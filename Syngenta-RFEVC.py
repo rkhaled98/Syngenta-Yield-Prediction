@@ -108,10 +108,10 @@ estimator = svm.SVR(kernel="linear")
 
 selector = RFECV(estimator, step=1, cv=5, verbose=1, n_jobs = -1)
 selector = selector.fit(X_train, y_train)
-# selector.support_ 
+print(selector.support_)
 # # array([ True,  True,  True,  True,  True,
 # #         False, False, False, False, False], dtype=bool)
-# selector.ranking_
+print(selector.ranking_)
 # # array([1, 1, 1, 1, 1, 6, 4, 3, 2, 5])
 
 
