@@ -106,7 +106,7 @@ classifiers = [
 
 estimator = svm.SVR(kernel="linear")
 
-selector = RFECV(estimator, step=1, cv=5, verbose=1, n_jobs = 1)
+selector = RFECV(estimator, step=1, cv=5, verbose=1, n_jobs = -1)
 selector = selector.fit(X_train, y_train)
 # selector.support_ 
 # # array([ True,  True,  True,  True,  True,
