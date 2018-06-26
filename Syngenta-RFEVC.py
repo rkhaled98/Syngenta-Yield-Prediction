@@ -15,8 +15,8 @@ df = pd.read_csv('Syngenta/Syngenta_2017/Experiment_dataset.csv')
 # THIS IS A DIFFERENT APPROACH TO THE ABOVE FOUR CELLS, WHERE WE HAVE 174 ADDITIONAL FEATURE COLUMNS
 # EACH WITH A 0 (IF IT IS NOT OF THAT VARIETY) OR A 1 (IF IT IS OF THAT VARIETY)
 
-variety_dummies = pd.get_dummies(df.Variety)
-df = pd.concat([df, variety_dummies], axis=1)
+# variety_dummies = pd.get_dummies(df.Variety)
+# df = pd.concat([df, variety_dummies], axis=1)
 
 
 # LATITUDE AND LONGITUDE CLUSTERING INTO FEATURES
@@ -106,7 +106,7 @@ classifiers = [
 
 estimator = svm.SVR(kernel="linear")
 
-selector = RFECV(estimator, step=1, cv=5, verbose=1)
+selector = RFECV(estimator, step=1, cv=5, verbose=1, n_jobs = 1)
 selector = selector.fit(X_train, y_train)
 # selector.support_ 
 # # array([ True,  True,  True,  True,  True,
